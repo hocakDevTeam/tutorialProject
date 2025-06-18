@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     @Styles.Render("~/Content/css")
+    @RenderSection("Styles", false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -16,13 +18,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="~/Images/HCN-SEAL-Stylized-white-background-400x401.png" />
+                    <div class="navbar-title">
+                        <img src="~/Images/ho-chunk-nation.png" />
+                        <hr />
+                        Inventory Tutorial
+                    </div>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Add Request", "Create", "Requests")</li>
+                    <li>@Html.ActionLink("Requests", "Index", "Requests")</li>
+                    <li>@Html.ActionLink("Shopping List", "Index", "ShoppingLists")</li>
                 </ul>
                 <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
             </div>
@@ -31,13 +41,18 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+    </div>
+    <div class="navbar navbar-fixed-bottom">
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <img class="pull-right" src="~/Images/ho-chunk-feathers-1.png" />
+            <span class="center-block">&copy; @DateTime.Now.Year - Ho-Chunk Nation, Inc. All rights reserved.</span>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/defaultFormStyling.js"></script>
+    <script src="~/Scripts/defaultButtonStyling.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,48 @@
+﻿@model TutorialProject.Models.ShoppingList
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ShoppingList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

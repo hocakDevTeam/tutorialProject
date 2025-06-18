@@ -1,0 +1,42 @@
+﻿@model TutorialProject.Models.ShoppingList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShoppingList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
