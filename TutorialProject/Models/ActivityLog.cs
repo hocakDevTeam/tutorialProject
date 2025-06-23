@@ -9,6 +9,7 @@ namespace TutorialProject.Models
     public class ActivityLog
     {
         public int Id { get; set; }
+        public int RequestId { get; set; }
         [DisplayName("Action")]
         public string Action { get; set; }
         [DisplayName("Created By")]

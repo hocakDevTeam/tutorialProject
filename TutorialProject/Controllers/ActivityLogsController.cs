@@ -21,6 +21,15 @@ namespace TutorialProject.Controllers
             return View(db.ActivityLogs.ToList());
         }
 
+        [ChildActionOnly]
+        public ActionResult GetIndexPartial(int id) // contract Id
+        {
+            return PartialView("_activityLog", db.ActivityLogs
+                .Where(x => x.RequestId == id)
+                .OrderByDescending(x => x.Id)
+                .ToList());
+        }
+
         // GET: ActivityLogs/Details/5
         public ActionResult Details(int? id)
         {

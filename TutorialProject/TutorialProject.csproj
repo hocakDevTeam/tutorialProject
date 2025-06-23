@@ -141,6 +141,18 @@
     <Compile Include="Migrations\202506181928419_initial migration.designer.cs">
       <DependentUpon>202506181928419_initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202506231419103_ModelChanges.cs" />
+    <Compile Include="Migrations\202506231419103_ModelChanges.designer.cs">
+      <DependentUpon>202506231419103_ModelChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506231431011_Foreign Key.cs" />
+    <Compile Include="Migrations\202506231431011_Foreign Key.designer.cs">
+      <DependentUpon>202506231431011_Foreign Key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506231459075_Change to IENu.cs" />
+    <Compile Include="Migrations\202506231459075_Change to IENu.designer.cs">
+      <DependentUpon>202506231459075_Change to IENu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActivityLog.cs" />
     <Compile Include="Models\Document.cs" />
@@ -217,6 +229,8 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Requests\ViewModelCreate.cshtml" />
+    <Content Include="Views\Requests\_activityLog.cshtml" />
+    <Content Include="Views\ActivityLogs\_activityLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -237,6 +251,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202506181928419_initial migration.resx">
       <DependentUpon>202506181928419_initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506231419103_ModelChanges.resx">
+      <DependentUpon>202506231419103_ModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506231431011_Foreign Key.resx">
+      <DependentUpon>202506231431011_Foreign Key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506231459075_Change to IENu.resx">
+      <DependentUpon>202506231459075_Change to IENu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
