@@ -17,5 +17,7 @@ namespace TutorialProject.DataAccess
         public DbSet<ShoppingList> ShoppingLists { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Document> Documents { get; set; }
+
+        public System.Data.Entity.DbSet<TutorialProject.Models.ViewModels.CreateRequestViewModel> CreateRequestViewModels { get; set; }
     }
 }
