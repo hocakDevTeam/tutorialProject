@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TutorialProject.DataAccess;
 using TutorialProject.Models;
+using TutorialProject.Models.ViewModels;
 
 namespace TutorialProject.Controllers
 {
@@ -39,7 +40,7 @@ namespace TutorialProject.Controllers
         // GET: Requests/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new CreateRequestViewModel { });
         }
 
         // POST: Requests/Create
