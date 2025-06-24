@@ -10,6 +10,7 @@ namespace TutorialProject.Models
     {
         public int Id { get; set; }
         public int RequestId { get; set; }
+        //public int? ShoppingListId { get; set; }
         [DisplayName("Action")]
         public string Action { get; set; }
         [DisplayName("Created By")]

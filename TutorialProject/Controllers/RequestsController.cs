@@ -68,10 +68,38 @@ namespace TutorialProject.Controllers
                 db.SaveChanges();
 
 
-
-                db.ActivityLogs.Add(new ActivityLog {
+                db.ActivityLogs.Add(new ActivityLog
+                {
                     RequestId = request.Id,
                     Action = "Created",
+                    CreatedBy = User.Identity.Name,
+                    CreatedOn = DateTime.Now
+                });
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View(vm);
+
+
+        // POST: Requests/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Name,Quantity,Location,Date,CreatedBy,CreatedOn,Archived")] Request request)
+        {
+            if (ModelState.IsValid)
+            {
+                request.CreatedOn = DateTime.Now;
+                request.CreatedBy = User.Identity.Name;
+                db.Entry(request).State = EntityState.Modified;
+                db.SaveChanges();
+
+                db.ActivityLogs.Add(new ActivityLog
+                {
+                    RequestId = request.Id,
+                    Action = "Edited",
                     CreatedBy = User.Identity.Name,
                     CreatedOn = DateTime.Now
                 });
