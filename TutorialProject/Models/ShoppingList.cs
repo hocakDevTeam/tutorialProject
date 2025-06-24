@@ -13,6 +13,7 @@ namespace TutorialProject.Models
         public bool Archived { get; set; }
 
         public virtual ICollection<Request> Requests { get; set; }
+        public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
         public virtual ICollection<Document> Documents { get; set; }
     }
 }

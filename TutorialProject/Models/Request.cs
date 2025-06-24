@@ -16,7 +16,7 @@ namespace TutorialProject.Models
         public DateTime CreatedOn { get; set; }
         public bool Archived { get; set; }
 
-        public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
+        public virtual IEnumerable<ActivityLog> ActivityLogs { get; set; }
 
     }
 }

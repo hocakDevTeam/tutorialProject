@@ -4,71 +4,106 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Here are Details</h2>
 
 <div>
-    <h4>Request</h4>
+    <h4>Detailed Ticket Info</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Archived)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Archived)
-        </dd>
-
-    </dl>
 </div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-5">
+
+            <dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+            </dl>
+
+            <dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+            </dl>
+
+
+            <dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+            </dl>
+
+            <dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+            </dl>
+
+
+            <dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedBy)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedBy)
+                </dd>
+            </dl>
+
+            <dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedOn)
+                </dd>
+            </dl>
+
+            @*<dl class="row">
+                <div class="col-md-4">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Archived)
+                    </dt>
+                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Archived)
+                </dd>
+            </dl>*@
+        </div>
+
+        <div class="col-md-6">
+            @Html.Action("GetIndexPartial", "ActivityLogs", new { id = Model.Id })
+        </div>
+    </div>  
+</div>
+<hr />
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |   &nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;
     @Html.ActionLink("Back to List", "Index")
 </p>

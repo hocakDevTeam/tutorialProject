@@ -20,9 +20,6 @@ namespace TutorialProject.Models
         public byte[] Content { get; set; }
         [DisplayName("File Extension")]
         public string FileExtension { get; set; }
-        public string Type { get; set; }
-        [DisplayName("Type")]
-        public string SubType { get; set; }
 
         //Blame fields
         [DisplayName("Created By")]

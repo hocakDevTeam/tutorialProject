@@ -48,16 +48,39 @@ namespace TutorialProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Quantity,Location,Date,CreatedBy,CreatedOn,Archived")] Request request)
+        public ActionResult Create(CreateRequestViewModel vm)
         {
             if (ModelState.IsValid)
             {
+                var request = new Request
+                {
+                    Id = vm.Id,
+                    Name = vm.Name,
+                    Quantity = vm.Quantity,
+                    Location = vm.Location,
+                    Date = vm.Date,
+                    CreatedBy = User.Identity.Name,
+                    CreatedOn = DateTime.Now,
+                    Archived = false
+                };
+
                 db.Requests.Add(request);
                 db.SaveChanges();
+
+
+
+                db.ActivityLogs.Add(new ActivityLog
+                {
+                    RequestId = request.Id,
+                    Action = "Created",
+                    CreatedBy = User.Identity.Name,
+                    CreatedOn = DateTime.Now
+                });
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-
-            return View(request);
+            return View(vm);
         }
 
         // GET: Requests/Edit/5
@@ -84,8 +107,20 @@ namespace TutorialProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                request.CreatedOn = DateTime.Now;
+                request.CreatedBy = User.Identity.Name;
                 db.Entry(request).State = EntityState.Modified;
                 db.SaveChanges();
+
+                db.ActivityLogs.Add(new ActivityLog
+                {
+                    RequestId = request.Id,
+                    Action = "Edited",
+                    CreatedBy = User.Identity.Name,
+                    CreatedOn = DateTime.Now
+                });
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(request);
