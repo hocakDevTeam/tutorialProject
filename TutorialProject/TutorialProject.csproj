@@ -141,6 +141,7 @@
     <Compile Include="Migrations\202506181928419_initial migration.designer.cs">
       <DependentUpon>202506181928419_initial migration.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Migrations\202506231559005_New Branch.cs" />
     <Compile Include="Migrations\202506231559005_New Branch.designer.cs">
       <DependentUpon>202506231559005_New Branch.cs</DependentUpon>
